@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->integer('plat_no');
             $table->string('color')->nullable();
+            $table->foreignId('user_id')->contrained()->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

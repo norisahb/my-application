@@ -8,6 +8,15 @@ use App\Models\Vehicle;
 
 class VehicleController extends Controller
 {
+    public function __construct()
+    {
+
+        $this->middleware('auth');
+
+    }
+
+
+
     public function index()
     {
         // query all vehicles from the table 'vehicles; using model
@@ -37,6 +46,7 @@ class VehicleController extends Controller
         $vehicle ->name = $request->name;
         $vehicle ->plat_no = $request->plat_no;
         $vehicle ->color = $request->color;
+        $vehicle ->user_id = auth()->user()->id;
         $vehicle ->save();
 
 
@@ -46,7 +56,7 @@ class VehicleController extends Controller
     }
 
 
-     public function show(Inventory $inventory)
+     public function show(Vehicle $vehicle)
     {
 
         return view('vehicles.show', compact('vehicle'));
@@ -67,8 +77,9 @@ class VehicleController extends Controller
         //update using model
 
         $vehicle ->name = $request->name;
-        $vehicle ->no_plat = $request->no_plat;
+        $vehicle ->plat_no = $request->plat_no;
         $vehicle ->color = $request->color;
+        $vehicle ->user_id = auth()->user()->id;
         $vehicle ->save();
 
 

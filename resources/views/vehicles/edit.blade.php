@@ -21,10 +21,6 @@
                             <input type="plat_no" value="{{$vehicle->plat_no}}" class="form-control" id="plat_no" name="plat_no" required>
                         </div>
 
-                         <div class="mb-3">
-                            <label for="color" class="form-label">Color</label>
-                            <input type="text" value="{{$vehicle->color}}" class="form-control" id="color" name="color" required>
-                        </div>
 
                         <div class="mb-3">
                             <label for="color" class="form-label">Color</label>
